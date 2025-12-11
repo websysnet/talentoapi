@@ -1,10 +1,11 @@
 namespace talentoapi.Infraestructura;
+
 using talentoapi.Dominio;
 
 
-class DeporteRepository
+public class DeporteRepository
 {
-   
+
 
     private List<Deporte> deportes = new List<Deporte>
     {
@@ -18,9 +19,9 @@ class DeporteRepository
     public List<Deporte> getDeportes()
     {
         return deportes;
-    }   
+    }
 
-    public Deporte getDeporteById(int id)
+    public Deporte? getDeporteById(int id)
     {
         return deportes.FirstOrDefault(d => d.Id == id);
     }

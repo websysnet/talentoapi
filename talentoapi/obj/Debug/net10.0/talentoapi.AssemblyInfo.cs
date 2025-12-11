@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("talentoapi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+43b599f6cb021aae7f8f8bb896e9f81e656351f6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b1fe4411da0fc7440bb147605c7fa4703a87d260")]
 [assembly: System.Reflection.AssemblyProductAttribute("talentoapi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("talentoapi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

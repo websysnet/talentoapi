@@ -1,8 +1,9 @@
 namespace talentoapi.Services;
+
 using talentoapi.Dominio;
 using talentoapi.Infraestructura;
 
-class DeporteServices
+public class DeporteServices
 {
     private readonly DeporteRepository _deporteRepository;
 
@@ -16,8 +17,23 @@ class DeporteServices
         return _deporteRepository.getDeportes();
     }
 
-    public Deporte GetDeporteById(int id){
-        return _deporteRepository.getDeporteById(id);
+    public Deporte GetDeporteById(int id)
+    {
+        if (id <= 0)
+        {
+            throw new ArgumentException("El ID del deporte no puede ser menor o igual a cero.");
+        }
+        else
+        {
+            var deporte = _deporteRepository.getDeporteById(id);
+            if (deporte == null)
+            {
+                throw new KeyNotFoundException($"No se encontró ningún deporte con el ID {id}.");
+            }
+            return deporte;
+        }
+
+
     }
 
     public void AddDeporte(Deporte deporte)
