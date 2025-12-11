@@ -30,31 +30,31 @@ TalentoAPI es una API REST construida con .NET 10 para gestionar procesos de det
 
 **Endpoints (ejemplos) 🔗**
 
-- GET /api/atletas — listar atletas
-- GET /api/atletas/{id} — detalle de atleta
-- POST /api/atletas — crear atleta
-- PUT /api/atletas/{id} — actualizar atleta
-- GET /api/pruebas — listar pruebas de selección
-- POST /api/pruebas — registrar resultados de pruebas
-- GET /api/estadisticas/percentiles?prueba={id}&cohorte={cohorte} — obtener percentiles
+- GET /atletas — listar atletas (ejemplo)
+- GET /atletas/{id} — detalle de atleta
+- POST /atletas — crear atleta
+- PUT /atletas/{id} — actualizar atleta
+- GET /pruebas — listar pruebas de selección
+- POST /pruebas — registrar resultados de pruebas
+- GET /estadisticas/percentiles?prueba={id}&cohorte={cohorte} — obtener percentiles
 
-**Endpoints para Deporte y Entrenador (implementados en el código) ⚽🏋️**
+**Endpoints para Deporte y Entrenador (implementados / previstos) ⚽🏋️**
 
-- Deporte:
-  - GET /api/deportes — listar deportes
-  - GET /api/deportes/{id} — obtener deporte por id
-  - POST /api/deportes — crear un nuevo deporte
-  - PUT /api/deportes/{id} — actualizar un deporte
-  - DELETE /api/deportes/{id} — eliminar un deporte
+- Deporte (actualmente mapeado en `Program.cs` sin prefijo `/api`):
+  - GET /deportes — listar deportes
+  - GET /deportes/{id} — obtener deporte por id
+  - POST /deportes — crear un nuevo deporte
+  - PUT /deportes/{id} — actualizar un deporte
+  - DELETE /deportes/{id} — eliminar un deporte
 
-- Entrenador:
-  - GET /api/entrenadores — listar entrenadores
-  - GET /api/entrenadores/{id} — obtener entrenador por id
-  - POST /api/entrenadores — crear entrenador
-  - PUT /api/entrenadores/{id} — actualizar entrenador
-  - DELETE /api/entrenadores/{id} — eliminar entrenador
+- Entrenador (controlador presente en el código, no está mapeado automáticamente en `Program.cs`):
+  - GET /entrenadores — listar entrenadores
+  - GET /entrenadores/{id} — obtener entrenador por id
+  - POST /entrenadores — crear entrenador
+  - PUT /entrenadores/{id} — actualizar entrenador
+  - DELETE /entrenadores/{id} — eliminar entrenador
 
-> Nota: La API puede autenticarse mediante JWT y soporta roles (admin, coach, analyst).
+Nota: `Program.cs` actualmente usa mapeos explícitos (ej. `app.MapGet("/deportes", ...)`) que exponen rutas sin `/api`. Si prefieres rutas con prefijo `/api` o usar controladores MVC estándar, convierte las clases en controladores `ApiController` y registra `builder.Services.AddControllers()` + `app.MapControllers()` en `Program.cs`.
 
 **Cálculos estadísticos y percentiles 📐**
 
