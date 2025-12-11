@@ -14,7 +14,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-
+app.MapGet("/deportes", () =>
+{
+    var controller = new talentoapi.Controllers.DeporteController();
+    return controller.GetDeportes();
+});
 
 
 app.Run();
